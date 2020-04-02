@@ -3,7 +3,9 @@ let baseUrl = 'http://localhost:3000'
 
 
 $( document ).ready(function () {
-    $('.register-warp').hide()
+    $('.dashboard').show()
+    
+    // authentication();
 
     $('#regisbtn').click(function() {
         $('.register-warp').show()
@@ -14,10 +16,13 @@ $( document ).ready(function () {
         $('.register-warp').hide()
         $('.login-warp').show()
     });
-
-
+    
+    $('#logout').click(function () {
+        localStorage.clear();
+        sessionStorage.clear();
         authentication();
-
+    })
+       
 })
 
 function login(event) {
@@ -71,16 +76,15 @@ function register(event) {
     })
 }
 
-
-
 function authentication() {
 
     if(localStorage.access_token){
         $('.login-warp').hide()
-
+        $('.login-regis-wrapped').hide()
     } else {
+        $('.login-regis-wrapped').show()
         $('.login-warp').show();
-        
+        $('.register-warp').hide()
     }
 
 }

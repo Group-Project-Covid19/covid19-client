@@ -9,39 +9,75 @@
 </head>
 <body>
 <!-- login -->
-<div class="login-warp">
-    <p class="loginTitle">login</p>
-    <form onsubmit="login(event)">
-        <label>Email</label>
-        <input  id="user" type="email" class="form_login" placeholder="Username atau email" required>
-        <label>Password</label>
-        <input id="pass" type="password" class="form_login" placeholder="Password" required>
-        <input type="submit" class="loginBtn" value="LOGIN"><br><br>
-        <div class="g-signin2" data-height = "35" data-width="auto"  data-longtitle="true" data-type="submit" data-onsuccess="onSignIn"></div>
-        <p>don't have an account ? </p> <button id="regisbtn">register</button>
-        <br/>
-        <br/>
-    </form>
-</div>
+<!-- <div class="login-regis-wrapped">
+    <div class="login-warp">
+        <p class="loginTitle">login</p>
+        <form onsubmit="login(event)">
+            <label>Email</label>
+            <input  id="user" type="email" class="form_login" placeholder="Username atau email" required>
+            <label>Password</label>
+            <input id="pass" type="password" class="form_login" placeholder="Password" required>
+            <input type="submit" class="loginBtn" value="LOGIN"><br><br>
+            <div class="g-signin2" data-height = "35" data-width="auto"  data-longtitle="true" data-type="submit" data-onsuccess="onSignIn"></div>
+            <p>don't have an account ? </p> <button id="regisbtn">register</button>
+            <br/>
+            <br/>
+        </form>
+    </div>
 
-<div class="register-warp">
-    <p class="registerTitle">Register</p>
-    <form onsubmit="register(event)">
-        <label>Email</label>
-        <input  id="username" type="email" class="form_register" placeholder="Username atau email" required>
-        <label>Password</label>
-        <input id="password" type="password" class="form_register" placeholder="Password" required>
-        <input type="submit" class="regisBtn" value="REGISTER">
-        <p>already have an account ? </p> <button id="loginbtn">login</button>
-        <br/>
-        <br/>
-    </form>
+    <div class="register-warp">
+        <p class="registerTitle">Register</p>
+        <form onsubmit="register(event)">
+            <label>Email</label>
+            <input  id="username" type="email" class="form_register" placeholder="Username atau email" required>
+            <label>Password</label>
+            <input id="password" type="password" class="form_register" placeholder="Password" required>
+            <input type="submit" class="regisBtn" value="REGISTER">
+            <p>already have an account ? </p> <button id="loginbtn">login</button>
+            <br/>
+            <br/>
+        </form>
+    </div>
+</div> -->
+<div class="dashboard">
+    <div class="navbar"> 
+        <button id="logout">logout</button>
+    </div>
+
+    <div class="content">
+        <div class="report" style="overflow-y:auto;">
+            <h3>Statistik</h3>
+            <table>
+                <th width = "50%">Lokasi</th>
+                <th>Dikonfirmasi</th>
+                <th>Sembuh</th>
+                <th>Kematian</th>
+                
+           <!-- append data  -->
+            <tr>
+                <td></td>
+             </tr>
+            </table>
+        </div>
+        <br>
+    </div>
+      
+    
+    
+
+
+
 </div>
 
 </body>
 
 <!-- ------------------- script---------------------------------------------- -->
 <script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script
 src="https://code.jquery.com/jquery-3.4.1.js"
 integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
