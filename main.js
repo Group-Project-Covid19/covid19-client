@@ -3,7 +3,20 @@ let baseUrl = 'http://localhost:3000'
 
 
 $( document ).ready(function () {
-    authentication();
+    $('.register-warp').hide()
+
+    $('#regisbtn').click(function() {
+        $('.register-warp').show()
+        $('.login-warp').hide()
+    });
+
+    $('#loginbtn').click(function() {
+        $('.register-warp').hide()
+        $('.login-warp').show()
+    });
+
+
+        authentication();
 
 })
 
@@ -32,6 +45,34 @@ function login(event) {
     })
 }
 
+function register(event) {
+    event.preventDefault();
+    
+    let email = $('#title').val();
+    let password = $('#description').val();
+
+    $.ajax({
+        method : 'POST',
+        url : baseUrl + '/todos',
+        data : {
+            email,
+            password
+        },
+        headers : {
+            access_token : localStorage.access_token
+        },
+       
+    })
+    .done(result => {
+        getTodos()
+    })
+    .fail(err => {
+        console.log(err);
+    })
+}
+
+
+
 function authentication() {
 
     if(localStorage.access_token){
@@ -39,6 +80,7 @@ function authentication() {
 
     } else {
         $('.login-warp').show();
+        
     }
 
 }

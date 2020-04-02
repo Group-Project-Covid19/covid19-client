@@ -16,12 +16,28 @@
         <input  id="user" type="email" class="form_login" placeholder="Username atau email" required>
         <label>Password</label>
         <input id="pass" type="password" class="form_login" placeholder="Password" required>
-        <input type="submit" class="loginBtn" value="LOGIN">
+        <input type="submit" class="loginBtn" value="LOGIN"><br><br>
         <div class="g-signin2" data-height = "35" data-width="auto"  data-longtitle="true" data-type="submit" data-onsuccess="onSignIn"></div>
+        <p>don't have an account ? </p> <button id="regisbtn">register</button>
         <br/>
         <br/>
     </form>
 </div>
+
+<div class="register-warp">
+    <p class="registerTitle">Register</p>
+    <form onsubmit="register(event)">
+        <label>Email</label>
+        <input  id="username" type="email" class="form_register" placeholder="Username atau email" required>
+        <label>Password</label>
+        <input id="password" type="password" class="form_register" placeholder="Password" required>
+        <input type="submit" class="regisBtn" value="REGISTER">
+        <p>already have an account ? </p> <button id="loginbtn">login</button>
+        <br/>
+        <br/>
+    </form>
+</div>
+
 </body>
 
 <!-- ------------------- script---------------------------------------------- -->

@@ -9,12 +9,16 @@ h1{
 	font-weight: 300;
 }
 
-.loginTitle{
+p {
+	color: grey;
+}
+
+.loginTitle, .registerTitle{
 	text-align: center;
 	text-transform: uppercase;
 }
 
-.login-warp{
+.login-warp, .register-warp{
 	width: 350px;
 	background: white;
 	margin: 80px auto;
@@ -25,7 +29,7 @@ label{
 	font-size: 11pt;
 }
 
-.form_login{
+.form_login, .form_register{
 	box-sizing : border-box;
 	width: 100%;
 	padding: 10px;
@@ -33,7 +37,7 @@ label{
 	margin-bottom: 20px;
 }
 
-.loginBtn{
+.loginBtn, .regisBtn{
 	background: #46de4b;
 	color: white;
 	font-size: 11pt;
