@@ -1,0 +1,50 @@
+body{
+	font-family: sans-serif;
+    background-image: url('./img/jakarta2.jfif');
+    background-size: cover;
+}
+
+h1{
+	text-align: center;
+	font-weight: 300;
+}
+
+.loginTitle{
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.login-warp{
+	width: 350px;
+	background: white;
+	margin: 80px auto;
+	padding: 30px 20px;
+}
+
+label{
+	font-size: 11pt;
+}
+
+.form_login{
+	box-sizing : border-box;
+	width: 100%;
+	padding: 10px;
+	font-size: 11pt;
+	margin-bottom: 20px;
+}
+
+.loginBtn{
+	background: #46de4b;
+	color: white;
+	font-size: 11pt;
+	width: 100%;
+	border: none;
+	border-radius: 3px;
+	padding: 10px 20px;
+}
+
+.link{
+	color: #232323;
+	text-decoration: none;
+	font-size: 10pt;
+}
