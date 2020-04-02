@@ -9,7 +9,7 @@ $( document ).ready(function () {
 
 function login(event) {
     event.preventDefault()
-
+    
     let email = $('#user').val();
     let password = $('#pass').val();
 
@@ -21,7 +21,6 @@ function login(event) {
             email,
             password
         }
-    
     })
     .done(result => {
         localStorage.setItem('access_token', result.access_token)
@@ -36,7 +35,6 @@ function login(event) {
 function authentication() {
 
     if(localStorage.access_token){
-
         $('.login-warp').hide()
 
     } else {
