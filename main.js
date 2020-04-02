@@ -85,10 +85,16 @@ function getData() {
     })
     .done(result=> {
         $('#data').empty();
-
-        console.log(result);
         
         result.forEach(el => {
+            $('#data').append(`
+                <tr>
+                    <td>${el.attributes.Provinsi}</td>
+                    <td>${el.attributes.Kasus_Posi}</td>
+                    <td>${el.attributes.Kasus_Semb}</td>
+                    <td>${el.attributes.Kasus_Meni}</td>
+                </tr>
+            `)
 
         });
 
@@ -118,7 +124,7 @@ function onSignIn(googleUser) {
     var id_token = googleUser.getAuthResponse().id_token;
     $.ajax({
         method : 'POST',
-        url : baseUrl + '/googleSign',
+        url : baseUrl + '/googleSignIn',
         data : {
             id_token
         }
