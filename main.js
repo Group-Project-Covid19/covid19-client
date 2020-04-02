@@ -3,10 +3,17 @@ let baseUrl = 'http://localhost:3000'
 
 
 $( document ).ready(function () {
-    $('.dashboard').show()
     
-    // authentication();
+    authentication();
 
+    $('.logoutbtn').click(function () {
+        localStorage.clear();
+        sessionStorage.clear();
+        authentication();
+      
+        
+    })
+        
     $('#regisbtn').click(function() {
         $('.register-warp').show()
         $('.login-warp').hide()
@@ -17,59 +24,54 @@ $( document ).ready(function () {
         $('.login-warp').show()
     });
     
-    $('#logout').click(function () {
-        localStorage.clear();
-        sessionStorage.clear();
-        authentication();
-    })
+   
        
 })
 
 function login(event) {
     event.preventDefault()
     
-    let email = $('#user').val();
-    let password = $('#pass').val();
+    let email = $('#email').val();
+    let password = $('#password').val();
 
     $.ajax({
 
         method : 'POST',
-        url : baseUrl + '/user/login',
+        url : baseUrl + '/login',
         data : {
             email,
             password
         }
     })
     .done(result => {
-        localStorage.setItem('access_token', result.access_token)
+        localStorage.setItem('accessToken', result.accessToken)
         authentication()
     })
     .fail(err => {
         console.log(err);
-        
     })
 }
 
 function register(event) {
     event.preventDefault();
     
-    let email = $('#title').val();
-    let password = $('#description').val();
+    let email = $('#newemail').val();
+    let password = $('#newpassword').val();
 
     $.ajax({
         method : 'POST',
-        url : baseUrl + '/todos',
+        url : baseUrl + '/register',
         data : {
             email,
             password
         },
         headers : {
-            access_token : localStorage.access_token
+            accessToken : localStorage.accessToken
         },
-       
+        
     })
     .done(result => {
-        getTodos()
+        
     })
     .fail(err => {
         console.log(err);
@@ -78,12 +80,12 @@ function register(event) {
 
 function authentication() {
 
-    if(localStorage.access_token){
-        $('.login-warp').hide()
+    if(localStorage.accessToken){
+        $('.dashboard').show()
         $('.login-regis-wrapped').hide()
     } else {
+        $('.dashboard').hide()
         $('.login-regis-wrapped').show()
-        $('.login-warp').show();
         $('.register-warp').hide()
     }
 
@@ -94,13 +96,13 @@ function onSignIn(googleUser) {
     var id_token = googleUser.getAuthResponse().id_token;
     $.ajax({
         method : 'POST',
-        url : baseUrl + '/user/googleSign',
+        url : baseUrl + '/googleSign',
         data : {
             id_token
         }
     })
     .done(result => {
-        localStorage.setItem('access_token', result.access_token)
+        localStorage.setItem('accessToken', result.accessToken)
         authentication()
     })
 
