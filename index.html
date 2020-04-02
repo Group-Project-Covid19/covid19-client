@@ -49,13 +49,19 @@
     <div class="content">
         <div class="report" style="overflow-y:auto;">
             <h3>Statistik</h3>
-            <table>
-                <th width = "63.9%">Lokasi</th>
-                <th width = "13.7%">Dikonfirmasi</th>
-                <th width = "11.2%">Sembuh</th>
-                <th>Kematian</th>
-            </table>
-            <table id="data"></table>
+            <div class="table-wrapper">
+                
+                <table class="fl-table">
+                <thead>
+                    <th width = "63.6%">Lokasi</th>
+                    <th width = "14%">Dikonfirmasi</th>
+                    <th width = "11.2%">Sembuh</th>
+                    <th>Kematian</th>
+                </thead>
+                </table >
+                <table class="fl-table" id="data"></table>
+                
+            </div>
            <!-- append data  -->
         </div>
         <br>
@@ -63,6 +69,20 @@
 </div>
 
 </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- ------------------- script---------------------------------------------- -->
 <script src="https://apis.google.com/js/platform.js" async defer></script>
