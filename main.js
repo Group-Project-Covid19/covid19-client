@@ -10,8 +10,7 @@ $( document ).ready(function () {
         localStorage.clear();
         sessionStorage.clear();
         authentication();
-      
-        
+
     })
         
     $('#regisbtn').click(function() {
@@ -68,7 +67,7 @@ function register(event) {
         headers : {
             accessToken : localStorage.accessToken
         },
-        
+
     })
     .done(result => {
         
@@ -78,17 +77,40 @@ function register(event) {
     })
 }
 
+function getData() {
+    
+    $.ajax({
+        method:'GET',
+        url: baseUrl + '/data'
+    })
+    .done(result=> {
+        $('#data').empty();
+
+        console.log(result);
+        
+        result.forEach(el => {
+
+        });
+
+    })
+    .fail(err => {
+        console.log(err);
+        
+    })
+}
+
+
 function authentication() {
 
     if(localStorage.accessToken){
         $('.dashboard').show()
         $('.login-regis-wrapped').hide()
+        getData()
     } else {
         $('.dashboard').hide()
         $('.login-regis-wrapped').show()
         $('.register-warp').hide()
     }
-
 }
 
 function onSignIn(googleUser) {
