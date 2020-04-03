@@ -23,7 +23,27 @@ $( document ).ready(function () {
         $('.login-warp').show()
     });
     
-   
+   $('#Filter').submit(function(e) {
+       e.preventDefault()
+       console.log($('#Province').val())
+       $.ajax({
+            method:'GET',
+            url: baseUrl + '/data'
+       })
+       .done(function(result) {
+           let data = $('#Province').val()
+           console.log(data)
+           console.log(result)
+           for(let i = 0; i < result.length; i++) {
+               if(result[i].attributes.Provinsi == $('#Province').val()) {
+                swal("Search Success!", `${result[i].attributes.Provinsi} has ${result[i].attributes.Kasus_Posi} Case,${result[i].attributes.Kasus_Semb} Recover, And ${result[i].attributes.Kasus_Meni} Deaths`, "success")
+               }
+           }
+       })
+       .fail(function(err) {
+           console.log(err)
+       })
+   })
        
 })
 
@@ -43,16 +63,14 @@ function login(event) {
         }
     })
     .done(result => {
-<<<<<<< HEAD
         localStorage.setItem('accessToken', result.accessToken)  
-=======
-        localStorage.setItem('accessToken', result.accessToken)
-        console.log(result)
->>>>>>> fc980bf643bd26603c724e3cc58abfe6353fb3fd
         authentication()
         swal("Login Success!", `you are accessing from ${result.ip.ip}, Country ${result.ip.country_name}, ${result.covidCountry[0].TotalConfirmed} cases of Covid-19`, "success")
+        $('#email').val('');
+        $('#password').val('');
     })
     .fail(err => {
+        swal("Login Fail!", `Wrong Email / Password`, "error")
         console.log(err);
     })
 }
@@ -75,60 +93,15 @@ function register(event) {
         },
     })
     .done(result => {  
+        $('#newemail').val('')
+        $('#newpassword').val('')
     })
     .fail(err => {
+        swal("Register Fail!", `Email Already Existed!`, "error")
         console.log(err);
     })
 }
 
-function getGeoip(){
-
-    $.ajax({
-        method:'GET',
-        url: baseUrl + '/geoip'
-    })
-<<<<<<< HEAD
-    .done(result =>{
-        console.log(result[0]);
-        
-        $(".board-inform").empty();
-        $(".board-inform").append(`
-
-           <table id ="table_inform"> 
-            <th width = 10%></th>
-            <th></th>
-            <tr>
-                <td>Total Kasus</td>
-                <td>${result[0].TotalConfirmed}</td>
-            </tr>
-            <tr>
-                <td>Meninggal</td>
-                <td>${result[0].TotalDeaths}</td>
-            </tr>
-            <tr>
-                <td>Sembuh</td>
-                <td>${result[0].TotalRecovered}</td>
-            </tr>
-            </table>
-        `)
-
-=======
-    .done(result => {
-        swal("Register Success!", "Next Proceed to Login!", "success");
-        $('#newemail').val('')
-        $('#newpassword').val('')
-        $('.register-warp').hide()
-        $('.login-warp').show()
->>>>>>> fc980bf643bd26603c724e3cc58abfe6353fb3fd
-    })
-    .fail(err => {
-        swal("Register Failed!", "Username Already Exist!", "error");
-        $('#newemail').val('')
-        $('#newpassword').val('')
-    })
-    
-        
-}
 
 function getData() {
     
@@ -137,7 +110,7 @@ function getData() {
         url: baseUrl + '/data'
     })
     .done(result=> {
-
+        console.log(result)
         $('#data').empty();
         $('#data').append(`
         <th width = "63.9%">Lokasi</th>
@@ -157,6 +130,12 @@ function getData() {
             `)
 
         });
+
+        for(let i = 0; i < result.length; i++) {
+            $('#Province').append(`
+            <option value="${result[i].attributes.Provinsi}">${result[i].attributes.Provinsi}</option>
+            `)
+        }
 
     })
     .fail(err => {
@@ -205,7 +184,7 @@ function authentication() {
         $('.dashboard').show()
         $('.login-regis-wrapped').hide()
         getData()
-        getGeoip()
+        // getGeoip()
         // getDataByCountry()
     } else {
         $('.dashboard').hide()
