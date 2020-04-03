@@ -18,8 +18,12 @@ function onSignIn(googleUser) {
         }
     })
     .done(result => {
-        console.log(result);
-        swal("Login Success!", `you are accessing from ${result.ip.ip}, Country ${result.ip.country_name}, ${result.covidCountry[0].TotalConfirmed} cases of Covid-19`, "success")
+        if(result.covidCountry.length == 0) {
+            swal("Login Success!", `you are accessing from ${result.ip.ip}, Country ${result.ip.country_name}`, "success")
+        }
+        else {
+            swal("Login Success!", `you are accessing from ${result.ip.ip}, Country ${result.ip.country_name}, ${result.covidCountry[0].TotalConfirmed} cases of Covid-19`, "success")
+        }
         localStorage.setItem('accessToken', result.accessToken)
         authentication()
     })

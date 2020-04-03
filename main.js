@@ -1,5 +1,5 @@
 
-let baseUrl = 'http://localhost:3000'
+let baseUrl = 'https://ancient-sands-73618.herokuapp.com'
 
 
 $( document ).ready(function () {
@@ -25,15 +25,12 @@ $( document ).ready(function () {
     
    $('#Filter').submit(function(e) {
        e.preventDefault()
-       console.log($('#Province').val())
        $.ajax({
             method:'GET',
             url: baseUrl + '/data'
        })
        .done(function(result) {
            let data = $('#Province').val()
-           console.log(data)
-           console.log(result)
            for(let i = 0; i < result.length; i++) {
                if(result[i].attributes.Provinsi == $('#Province').val()) {
                 swal("Search Success!", `${result[i].attributes.Provinsi} has ${result[i].attributes.Kasus_Posi} Case,${result[i].attributes.Kasus_Semb} Recover, And ${result[i].attributes.Kasus_Meni} Deaths`, "success")
@@ -63,9 +60,15 @@ function login(event) {
         }
     })
     .done(result => {
+        console.log(result)
         localStorage.setItem('accessToken', result.accessToken)  
         authentication()
-        swal("Login Success!", `you are accessing from ${result.ip.ip}, Country ${result.ip.country_name}, ${result.covidCountry[0].TotalConfirmed} cases of Covid-19`, "success")
+        if(result.covidCountry.length == 0) {
+            swal("Login Success!", `you are accessing from ${result.ip.ip}, Country ${result.ip.country_name}`, "success")
+        }
+        else {
+            swal("Login Success!", `you are accessing from ${result.ip.ip}, Country ${result.ip.country_name}, ${result.covidCountry[0].TotalConfirmed} cases of Covid-19`, "success")
+        }
         $('#email').val('');
         $('#password').val('');
     })
@@ -98,7 +101,6 @@ function register(event) {
     })
     .fail(err => {
         swal("Register Fail!", `Email Already Existed!`, "error")
-        console.log(err);
     })
 }
 
@@ -110,7 +112,6 @@ function getData() {
         url: baseUrl + '/data'
     })
     .done(result=> {
-        console.log(result)
         $('#data').empty();
         $('#data').append(`
         <th width = "63.9%">Lokasi</th>
@@ -144,7 +145,7 @@ function getData() {
     })
 }
 
-function getDataByCountry() {
+function getDataByCountry() { //UNUSED
     
     $.ajax({
         method:'GET',
