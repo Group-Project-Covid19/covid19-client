@@ -58,7 +58,7 @@ td, th {
 }
 
 th {
-	color: gray;
+	color: black;
 	font-weight: 500;
 }
 
@@ -70,6 +70,8 @@ table {
 	text-align: left;
 	border-collapse: collapse;
 	border-style: hidden;
+	background-image: radial-gradient(#F04F4F, white);
+	
   }
 
 .report {
@@ -133,4 +135,9 @@ label{
 	color: #232323;
 	text-decoration: none;
 	font-size: 10pt;
+}
+
+.dashboard {
+	background-image: url('./img/5709.jpg');
+	background-size: cover;
 }
