@@ -1,5 +1,5 @@
 
-let baseUrl = 'http://localhost:3000'
+let baseUrl = 'https://ancient-sands-73618.herokuapp.com'
 
 
 $( document ).ready(function () {
@@ -63,6 +63,7 @@ function login(event) {
         }
     })
     .done(result => {
+        console.log(result)
         localStorage.setItem('accessToken', result.accessToken)  
         authentication()
         swal("Login Success!", `you are accessing from ${result.ip.ip}, Country ${result.ip.country_name}, ${result.covidCountry[0].TotalConfirmed} cases of Covid-19`, "success")
