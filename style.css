@@ -1,5 +1,7 @@
 body{
 	/* overflow: hidden; */
+	background-image: url('./img/5709.jpg');
+	background-size: cover;
 }
 
 .login-regis-wrapped {
@@ -175,4 +177,10 @@ label{
 .dashboard {
 	background-image: url('./img/5709.jpg');
 	background-size: cover;
+}
+#Filter{
+	text-align: center;
+}
+#buttonfilter {
+	text-align: center;
 }
