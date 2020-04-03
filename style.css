@@ -50,7 +50,13 @@ body{
 	display: flex;
 	flex-direction: column;
 }
-
+.board_inform {
+	margin-top: 50px;
+	height: 80%;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
 .content2 {
 	
 	margin-top: 50px;
@@ -69,6 +75,26 @@ td, th {
 th {
 	color: gray;
 	font-weight: 500;
+}
+
+#table_inform{
+	border-collapse: collapse;
+	font-size: 20px;
+	justify-content: center;
+
+}
+
+.board-inform {	
+	margin-top: 20px;
+	height: 50;
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+}
+
+#table_inform td, th {
+	border : none
+	
 }
 
 table {

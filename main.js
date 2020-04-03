@@ -11,7 +11,6 @@ $( document ).ready(function () {
         sessionStorage.clear();
         authentication();
         signOut()
-
     })
         
     $('#regisbtn').click(function() {
@@ -44,7 +43,7 @@ function login(event) {
         }
     })
     .done(result => {
-        localStorage.setItem('accessToken', result.accessToken)
+        localStorage.setItem('accessToken', result.accessToken)  
         authentication()
     })
     .fail(err => {
@@ -68,14 +67,50 @@ function register(event) {
         headers : {
             accessToken : localStorage.accessToken
         },
-
     })
-    .done(result => {
-        
+    .done(result => {  
     })
     .fail(err => {
         console.log(err);
     })
+}
+
+function getGeoip(){
+
+    $.ajax({
+        method:'GET',
+        url: baseUrl + '/geoip'
+    })
+    .done(result =>{
+        console.log(result[0]);
+        
+        $(".board-inform").empty();
+        $(".board-inform").append(`
+
+           <table id ="table_inform"> 
+            <th width = 10%></th>
+            <th></th>
+            <tr>
+                <td>Total Kasus</td>
+                <td>${result[0].TotalConfirmed}</td>
+            </tr>
+            <tr>
+                <td>Meninggal</td>
+                <td>${result[0].TotalDeaths}</td>
+            </tr>
+            <tr>
+                <td>Sembuh</td>
+                <td>${result[0].TotalRecovered}</td>
+            </tr>
+            </table>
+        `)
+
+    })
+    .fail(err => {
+        console.log(err);
+    })
+    
+        
 }
 
 function getData() {
@@ -85,15 +120,15 @@ function getData() {
         url: baseUrl + '/data'
     })
     .done(result=> {
-        $('#data').empty();
 
+        $('#data').empty();
         $('#data').append(`
         <th width = "63.9%">Lokasi</th>
         <th width = "13.7%">Dikonfirmasi</th>
         <th width = "11.2%">Sembuh</th>
         <th>Kematian</th>
     `)
-        
+
         result.forEach(el => {
             $('#data').append(`
                 <tr>
@@ -153,7 +188,8 @@ function authentication() {
         $('.dashboard').show()
         $('.login-regis-wrapped').hide()
         getData()
-        getDataByCountry()
+        getGeoip()
+        // getDataByCountry()
     } else {
         $('.dashboard').hide()
         $('.login-regis-wrapped').show()
