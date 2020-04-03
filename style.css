@@ -1,5 +1,5 @@
 body{
-	overflow: hidden;
+	/* overflow: hidden; */
 }
 
 .login-regis-wrapped {
@@ -43,6 +43,15 @@ body{
 }
 
 .content {
+	
+	margin-top: 50px;
+	height: 80%;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.content2 {
 	
 	margin-top: 50px;
 	height: 80%;

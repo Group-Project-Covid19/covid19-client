@@ -86,6 +86,13 @@ function getData() {
     })
     .done(result=> {
         $('#data').empty();
+
+        $('#data').append(`
+        <th width = "63.9%">Lokasi</th>
+        <th width = "13.7%">Dikonfirmasi</th>
+        <th width = "11.2%">Sembuh</th>
+        <th>Kematian</th>
+    `)
         
         result.forEach(el => {
             $('#data').append(`
@@ -106,6 +113,39 @@ function getData() {
     })
 }
 
+function getDataByCountry() {
+    
+    $.ajax({
+        method:'GET',
+        url: baseUrl + '/dataByCountry'
+    })
+    .done(result=> {
+        $('#dataCountry').empty();
+        $('#dataCountry').append(`
+            <th width = "63.9%">Lokasi</th>
+            <th width = "13.7%">Dikonfirmasi</th>
+            <th width = "11.2%">Sembuh</th>
+            <th>Kematian</th>
+        `)
+        
+        result.forEach(el => {
+            $('#dataCountry').append(`
+                <tr>
+                    <td><img src="https://www.countryflags.io/${el.attributes.code}/shiny/24.png"> ${el.attributes.Country_Region}</td>
+                    <td>${el.attributes.Confirmed}</td>
+                    <td>${el.attributes.Recovered}</td>
+                    <td>${el.attributes.Deaths}</td>
+                </tr>
+            `)
+
+        });
+
+    })
+    .fail(err => {
+        console.log(err);
+        
+    })
+}
 
 function authentication() {
 
@@ -113,6 +153,7 @@ function authentication() {
         $('.dashboard').show()
         $('.login-regis-wrapped').hide()
         getData()
+        getDataByCountry()
     } else {
         $('.dashboard').hide()
         $('.login-regis-wrapped').show()
