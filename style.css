@@ -1,0 +1,186 @@
+body{
+	/* overflow: hidden; */
+	background-image: url('./img/5709.jpg');
+	background-size: cover;
+}
+
+.login-regis-wrapped {
+	font-family: sans-serif;
+    background-image: url('./img/jakarta2.jfif');
+	background-size: cover;
+	/* padding: 50px 0; */
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+
+.navbar {
+
+-webkit-box-shadow: 0 8px 6px -6px grey;
+	-moz-box-shadow: 0 8px 6px -6px grey;
+		box-shadow: 0 8px 6px -6px grey;
+	margin: 0;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	size: 400;
+	background-color: white;
+	z-index: 99999;
+	display: flex;
+	justify-content: left
+}
+
+.dashboard {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: white;
+
+}
+
+.content {
+	
+	margin-top: 50px;
+	height: 80%;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
+.board_inform {
+	margin-top: 50px;
+	height: 80%;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
+.content2 {
+	
+	margin-top: 50px;
+	height: 80%;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
+
+td, th {
+	border: 1px solid #ddd;
+	padding: 8px;
+	
+}
+
+th {
+	color: black;
+	font-weight: 500;
+}
+
+#table_inform{
+	border-collapse: collapse;
+	font-size: 20px;
+	justify-content: center;
+
+}
+
+.board-inform {	
+	margin-top: 20px;
+	height: 50;
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+}
+
+#table_inform td, th {
+	border : none
+	
+}
+
+table {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+	font-size: 12px;
+	text-align: left;
+	border-collapse: collapse;
+	border-style: hidden;
+	background-image: radial-gradient(#F04F4F, white);
+	
+  }
+
+.report {
+	/* background-color: hotpink; */
+	width: 80%;
+	height: 80%;
+}
+
+#data {
+	width: 100%;
+	height: 100%;
+}
+
+
+
+h1{
+	text-align: center;
+	font-weight: 300;
+}
+
+p {
+	color: grey;
+}
+
+.loginTitle, .registerTitle{
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.login-warp, .register-warp{
+	width: 350px;
+	height: 450px;
+	background: white;
+	margin: 80px auto;
+	padding: 30px 20px;
+}
+
+label{
+	font-size: 11pt;
+}
+
+.form_login, .form_register{
+	box-sizing : border-box;
+	width: 100%;
+	padding: 10px;
+	font-size: 11pt;
+	margin-bottom: 20px;
+}
+
+.loginBtn, .regisBtn{
+	background: #46de4b;
+	color: white;
+	font-size: 11pt;
+	width: 100%;
+	border: none;
+	border-radius: 3px;
+	padding: 10px 20px;
+}
+
+.link{
+	color: #232323;
+	text-decoration: none;
+	font-size: 10pt;
+}
+
+.dashboard {
+	background-image: url('./img/5709.jpg');
+	background-size: cover;
+}
+#Filter{
+	text-align: center;
+}
+#buttonfilter {
+	text-align: center;
+}
